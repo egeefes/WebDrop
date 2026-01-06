@@ -23,8 +23,8 @@ A live version is available to test on https://egeefes.com/webdrop
 3. Cloudflare Workers
 
 ### How To Deploy
-- Deploy the files in the /worker folder to cloudflared and take note of the worker URL.
-- In your /index.html file, replace the worker websocket URL with yours in line 203.
+- Deploy the files in the [worker](/worker) folder to cloudflared and take note of the worker URL.
+- In your [index.html](index.html) file, replace the worker websocket URL with yours in line 203.
 - Host the HTML file either on your local machine or a hosting provider.
 
 ### Notes On Privacy
