@@ -12,6 +12,8 @@ A live version is available to test on https://egeefes.com/webdrop
 - The receiver rebuilds the file in the browser and triggers a download
 
 ## Features
+- No dependence on file/data storage servers
+- No user data stored off client
 - Drag & drop or click to select files
 - Share multiple files in one session
 - Public or private sessions
