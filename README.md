@@ -22,14 +22,11 @@ A live version is available to test on https://egeefes.com/webdrop
 2. WebSockets for the relay connection
 3. Cloudflare Workers
 
-### How To Deploy
+## How To Deploy
 - Deploy the files in the [worker](/worker) folder to cloudflared and take note of the worker URL.
 - In your [index.html](index.html) file, replace the worker websocket URL with yours in line 203.
 - Host the HTML file either on your local machine or a hosting provider.
 
-### Notes On Privacy
+## Notes On Privacy
 This app stores a username and session name in cookies (for convenience).
 File contents are transferred via the configured WebSocket relay.
-
-### License
-GPL-3.0
