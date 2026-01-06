@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://egeefes.com/webdrop">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="WebDrop">
+    <meta property="og:image" content="https://framerusercontent.com/images/SjBk4Izxscidnr9ecPD7LQJNpY4.png?scale-down-to=512&width=1344&height=768">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="egeefes.com">
+    <meta property="twitter:url" content="https://egeefes.com/webdrop">
+    <meta name="twitter:title" content="WebDrop">
+    <meta name="twitter:image" content="https://framerusercontent.com/images/SjBk4Izxscidnr9ecPD7LQJNpY4.png?scale-down-to=512&width=1344&height=768">
+
+    <!-- HTML Meta Tags -->
+    <meta charset="utf-8">
+    <title>WebDrop</title>
+    <meta name="author" content="Egedxb">
+    <meta name="description" content="WebDrop - By Ege Efes" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3884002,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+  <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
+  <script>
+  const mq = window.matchMedia('(prefers-color-scheme: dark)');
+  function applyTheme() {
+    document.documentElement.classList.toggle('dark', mq.matches);
+  }
+  applyTheme();
+  mq.addEventListener?.('change', applyTheme) || mq.addListener(applyTheme);
+  </script>
+</head>
+<body class="bg-gradient-to-br from-gray-100 to-gray-400 dark:from-gray-900 dark:to-gray-950 min-h-screen">
+  <div id="app" class="flex items-center justify-center min-h-screen p-4">
+
+    <!-- Main Lobby View -->
+    <div id="lobbyView" class="w-full max-w-6xl">
+      <div class="text-center mb-8">
+        <div class="w-20 h-20 bg-gray-200 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg viewBox="0 0 1024 1024" class="w-12 h-12" xmlns="http://www.w3.org/2000/svg">
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g transform="translate(17, 36)">
+                <circle fill="#007AFF" cx="495" cy="495" r="24"></circle>
+                <path d="M495,575 C539.18278,575 575,539.18278 575,495 C575,450.81722 539.18278,415 495,415 C450.81722,415 415,450.81722 415,495 C415,539.18278 450.81722,575 495,575 Z" stroke="#007AFF" stroke-width="44.9122807" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="385,125" transform="rotate(-42 495 495)"></path>
+                <path d="M495,665 C588.888407,665 665,588.888407 665,495 C665,401.111593 588.888407,325 495,325 C401.111593,325 325,401.111593 325,495 C325,588.888407 401.111593,665 495,665 Z" stroke="#007AFF" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="842,202" transform="rotate(-42 495 495)"></path>
+                <path d="M495,755 C638.594035,755 755,638.594035 755,495 C755,351.405965 638.594035,235 495,235 C351.405965,235 235,351.405965 235,495 C235,638.594035 351.405965,755 495,755 Z" stroke="#007AFF" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1302,282" transform="rotate(-42 495 495)"></path>
+                <path d="M495,845 C688.299662,845 845,688.299662 845,495 C845,301.700338 688.299662,145 495,145 C301.700338,145 145,301.700338 145,495 C145,688.299662 301.700338,845 495,845 Z" stroke="#007AFF" stroke-width="46.6666667" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1758,368" transform="rotate(-42 495 495)"></path>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">WebDrop</h1>
+        <p class="text-gray-600 dark:text-gray-400"> </p>
+
+        <!-- User name display (only shown when hosting) -->
+        <div id="userNameContainer" class="hidden mt-4 flex items-center justify-center gap-2">
+          <span class="text-sm text-gray-600 dark:text-gray-400">You are:</span>
+          <span id="userNameDisplay" class="font-bold text-gray-900 dark:text-gray-100"></span>
+          <button id="editUserNameBtn" class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Upload Area -->
+      <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-xl dark:shadow-black/40 p-8 mb-8">
+        <div id="dropzone" class="border-4 border-dashed border-gray-400 dark:border-gray-600 rounded-xl p-12 text-center cursor-pointer hover:border-gray-600 dark:hover:border-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800/60 transition">
+          <svg class="w-12 h-12 text-gray-500 dark:text-gray-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+          </svg>
+          <p class="text-gray-700 dark:text-gray-200 font-medium mb-4">Click or drop your file(s) here to share</p>
+
+          <!-- Private session checkbox (only shown when hosting) -->
+          <label id="privateCheckboxContainer" class="hidden inline-flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" id="privateCheckbox" class="w-4 h-4 rounded" />
+            <span class="text-sm text-gray-600 dark:text-gray-400">Make session private (requires passcode)</span>
+          </label>
+        </div>
+        <input type="file" id="fileInput" multiple style="position: absolute; opacity: 0; width: 0; height: 0" />
+      </div>
+
+      <!-- Available Sessions -->
+      <div id="sessionsContainer" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"></div>
+    </div>
+
+    <!-- Session Detail View -->
+    <div id="sessionView" class="hidden bg-white dark:bg-gray-900 rounded-2xl shadow-xl dark:shadow-black/40 p-8 max-w-lg w-full">
+      <button id="backBtn" class="mb-6 flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Back
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+          <span id="sessionInitials" class="text-2xl font-bold text-white"></span>
+        </div>
+
+        <!-- Session name with edit button -->
+        <div class="flex items-center justify-center gap-2 mb-2">
+          <h2 id="sessionName" class="text-2xl font-bold text-gray-900 dark:text-gray-100"></h2>
+          <button id="editSessionNameBtn" class="hidden text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Edit Name Section -->
+        <div id="editNameSection" class="hidden mt-4">
+          <input type="text" id="editNameInput" placeholder="Session name" class="w-full px-4 py-2 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-100 mb-2" />
+          <button id="saveNameBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition">
+            Save
+          </button>
+        </div>
+
+        <!-- Passcode Display (for sender) -->
+        <div id="passcodeDisplay" class="hidden mt-4 bg-yellow-100 dark:bg-yellow-900/30 border border-yellow-300 dark:border-yellow-700 rounded-lg p-3">
+          <p class="text-sm text-yellow-800 dark:text-yellow-200 mb-1">Your passcode is:</p>
+          <p class="text-2xl font-bold text-yellow-900 dark:text-yellow-100 tracking-widest" id="passcodeText"></p>
+        </div>
+      </div>
+
+      <!-- File Info -->
+      <div class="bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 border-2 border-gray-300 dark:border-gray-700 rounded-lg p-6 mb-4">
+        <div class="flex items-start gap-3">
+          <svg class="w-10 h-10 text-gray-700 dark:text-gray-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+          </svg>
+          <div class="flex-1 min-w-0">
+            <p id="fileInfo" class="font-bold text-gray-900 dark:text-gray-100 text-lg"></p>
+            <p id="fileSize" class="text-sm text-gray-600 dark:text-gray-400 mt-1"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Download Button (for receiver) -->
+      <button id="downloadBtn" class="hidden w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-lg flex items-center justify-center gap-3 transition shadow-lg hover:shadow-xl mb-3">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+        </svg>
+        Download
+      </button>
+
+      <!-- Privacy Toggle (for sender) -->
+      <button id="privacyToggleBtn" class="hidden w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition mb-3 flex items-center justify-center gap-2">
+        <svg id="lockIcon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
+        </svg>
+        <span id="privacyToggleText">Make Public</span>
+      </button>
+
+      <!-- End Session (for sender) -->
+      <button id="endSessionBtn" class="hidden w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition">
+        Stop Sharing
+      </button>
+
+      <!-- Progress -->
+      <div id="progressBox" class="hidden mt-4 space-y-2">
+        <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
+          <span id="progressLabel">Processing...</span>
+          <span id="progressPercent">0%</span>
+        </div>
+        <div class="bg-gray-300 dark:bg-gray-700 rounded-full h-3 overflow-hidden">
+          <div id="progressBar" class="bg-gray-700 dark:bg-gray-200 h-full transition-all duration-300" style="width: 0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Passcode Modal -->
+    <div id="passcodeModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+      <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 max-w-sm w-full">
+        <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Enter Passcode</h3>
+        <input type="text" id="passcodeInput" placeholder=" " maxlength="4" class="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-center text-2xl font-bold text-gray-900 dark:text-gray-100 tracking-widest uppercase mb-4" />
+        <div class="flex gap-3">
+          <button id="cancelPasscodeBtn" class="flex-1 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100 font-semibold py-3 px-6 rounded-lg transition">
+            Cancel
+          </button>
+          <button id="submitPasscodeBtn" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition">
+            Enter
+          </button>
+        </div>
+        <p id="passcodeError" class="hidden text-red-600 dark:text-red-400 text-sm mt-3 text-center"></p>
+      </div>
+    </div>
+
+    <!-- User Name Edit Modal -->
+    <div id="userNameModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+      <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 max-w-sm w-full">
+        <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Change Your Name</h3>
+        <input type="text" id="userNameInput" placeholder="Your name" maxlength="20" class="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-100 mb-4" />
+        <div class="flex gap-3">
+          <button id="cancelUserNameBtn" class="flex-1 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100 font-semibold py-3 px-6 rounded-lg transition">
+            Cancel
+          </button>
+          <button id="saveUserNameBtn" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition">
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const RELAY_WS = "wss://airdrop-relay.mail-2dc.workers.dev/ws";
+
+    let ws = null;
+    let mySessionId = null;
+    let myRole = null; // 'send' or 'recv'
+    let currentFiles = [];
+    let currentSessionMeta = null;
+    let pendingSessionId = null;
+    let userName = null;
+    let sessionName = null; // Separate session name that persists
+
+    // Transfer state
+    let rxChunks = [];
+    let rxMeta = null;
+    let rxBytes = 0;
+    let currentFileIndex = 0;
+    let totalFiles = 0;
+
+    init();
+
+    function init() {
+      console.log('Initializing app...');
+      try {
+        setupEventListeners();
+        console.log('Event listeners setup complete');
+      } catch (e) {
+        console.error('Error setting up event listeners:', e);
+      }
+
+      try {
+        loadOrCreateUserName();
+        loadSessionName();
+        console.log('Username and session name loaded');
+      } catch (e) {
+        console.error('Error loading username:', e);
+      }
+
+      try {
+        connect();
+        console.log('WebSocket connection initiated');
+      } catch (e) {
+        console.error('Error connecting:', e);
+      }
+    }
+
+    function loadOrCreateUserName() {
+      // Try to get name from cookie
+      const savedName = getCookie('airdrop_username');
+
+      console.log('Loading username from cookie:', savedName);
+      console.log('All cookies:', document.cookie);
+
+      if (savedName) {
+        userName = savedName;
+        console.log('Using saved name:', userName);
+      } else {
+        // Generate random 4-character name
+        userName = generateRandomName();
+        console.log('Generated new name:', userName);
+        setCookie('airdrop_username', userName, 365);
+      }
+
+      document.getElementById('userNameDisplay').textContent = userName;
+    }
+
+    function loadSessionName() {
+      // Try to get session name from cookie, fallback to userName
+      const savedSessionName = getCookie('airdrop_sessionname');
+
+      console.log('Loading session name from cookie:', savedSessionName);
+
+      if (savedSessionName) {
+        sessionName = savedSessionName;
+        console.log('Using saved session name:', sessionName);
+      } else {
+        // Default to userName
+        sessionName = userName;
+        console.log('Using userName as session name:', sessionName);
+      }
+    }
+
+    function generateRandomName() {
+      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+      let name = '';
+      for (let i = 0; i < 4; i++) {
+        name += chars[Math.floor(Math.random() * chars.length)];
+      }
+      return name;
+    }
+
+    function setCookie(name, value, days) {
+      const expires = new Date();
+      expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+      document.cookie = `${name}=${encodeURIComponent(value)};expires=${expires.toUTCString()};path=/;SameSite=Lax`;
+      console.log('Set cookie:', name, '=', value);
+    }
+
+    function getCookie(name) {
+      const nameEQ = name + "=";
+      const ca = document.cookie.split(';');
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) {
+          const value = decodeURIComponent(c.substring(nameEQ.length, c.length));
+          console.log('Got cookie:', name, '=', value);
+          return value;
+        }
+      }
+      console.log('Cookie not found:', name);
+      return null;
+    }
+
+    function connect() {
+      ws = new WebSocket(RELAY_WS);
+      ws.binaryType = "arraybuffer";
+
+      ws.onopen = () => {
+        console.log('Connected to server');
+        // Request session list on connect
+        setTimeout(() => {
+          send({ type: "GET_SESSIONS" });
+        }, 200);
+      };
+
+      ws.onmessage = (ev) => {
+        if (typeof ev.data === "string") {
+          try {
+            const msg = JSON.parse(ev.data);
+            console.log('Received message:', msg.type);
+            handleMessage(msg);
+          } catch (e) {
+            console.error('Parse error:', e);
+          }
+          return;
+        }
+
+        // Binary chunk
+        if (myRole === 'recv') {
+          rxChunks.push(ev.data);
+          rxBytes += ev.data.byteLength;
+
+          if (rxMeta) {
+            const progress = Math.round((rxBytes / rxMeta.size) * 100);
+            showProgress(`Receiving ${currentFileIndex + 1}/${totalFiles}`, progress);
+
+            if (rxBytes >= rxMeta.size) finishDownload();
+          }
+        }
+      };
+
+      ws.onclose = () => {
+        console.log('Disconnected, reconnecting...');
+        setTimeout(connect, 1000);
+      };
+
+      ws.onerror = (e) => {
+        console.error('WebSocket error:', e);
+      };
+    }
+
+    function handleMessage(msg) {
+      if (msg.type === "SESSION_LIST") {
+        console.log('Received session list:', msg.sessions.length, 'sessions');
+        renderSessions(msg.sessions);
+      }
+      else if (msg.type === "SESSION_CREATED") {
+        mySessionId = msg.sessionId;
+        myRole = 'send';
+        console.log('Session created:', msg.sessionId);
+
+        // Show user name and controls in lobby for hosts
+        document.getElementById('userNameContainer').classList.remove('hidden');
+        document.getElementById('privateCheckboxContainer').classList.remove('hidden');
+        console.log('Showing user name container and private checkbox for host');
+
+        if (msg.passcode) {
+          document.getElementById('passcodeText').textContent = msg.passcode;
+          document.getElementById('passcodeDisplay').classList.remove('hidden');
+        }
+
+        // Use sessionName (which persists) for the session view
+        showSessionView(sessionName, currentSessionMeta, true, msg.isPrivate);
+      }
+      else if (msg.type === "PRIVACY_TOGGLED") {
+        const isPrivate = msg.isPrivate;
+        const passcodeDisplay = document.getElementById('passcodeDisplay');
+        const lockIcon = document.getElementById('lockIcon');
+        const toggleText = document.getElementById('privacyToggleText');
+
+        if (isPrivate) {
+          document.getElementById('passcodeText').textContent = msg.passcode;
+          passcodeDisplay.classList.remove('hidden');
+          toggleText.textContent = 'Make Public';
+          lockIcon.innerHTML = '<path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>';
+        } else {
+          passcodeDisplay.classList.add('hidden');
+          toggleText.textContent = 'Make Private';
+          lockIcon.innerHTML = '<path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2H7V7a3 3 0 015.905-.75 1 1 0 001.937-.5A5.002 5.002 0 0010 2z"></path>';
+        }
+      }
+      else if (msg.type === "JOINED_SESSION") {
+        mySessionId = msg.sessionId;
+        myRole = 'recv';
+        currentSessionMeta = msg.meta;
+        console.log('Joined session:', msg.sessionId);
+
+        const session = document.querySelector(`[data-session-id="${msg.sessionId}"]`);
+        const name = session ? session.querySelector('.session-name').textContent : 'Session';
+
+        showSessionView(name, msg.meta, false);
+        hideModal('passcodeModal');
+      }
+      else if (msg.type === "ERROR") {
+        console.error('Server error:', msg.message);
+        showPasscodeError(msg.message);
+      }
+      else if (msg.type === "START_SEND") {
+        if (myRole === 'send') {
+          console.log('Starting send...');
+          sendNextFile();
+        }
+      }
+      else if (msg.type === "metadata") {
+        if (myRole === 'recv') {
+          rxMeta = msg;
+          rxChunks = [];
+          rxBytes = 0;
+          currentFileIndex = msg.fileIndex || 0;
+          totalFiles = msg.totalFiles || 1;
+          showProgress(`Receiving ${currentFileIndex + 1}/${totalFiles}`, 0);
+        }
+      }
+      else if (msg.type === "NEXT_FILE") {
+        if (myRole === 'send') {
+          console.log('Sending next file...');
+          sendNextFile();
+        }
+      }
+      else if (msg.type === "SESSION_CLOSED") {
+        console.log('Session closed by sender');
+        //alert('Session has ended');
+        backToLobby();
+      }
+      else if (msg.type === "LEFT_SESSION") {
+        console.log('Left session successfully');
+      }
+    }
+
+    function renderSessions(sessions) {
+      const container = document.getElementById('sessionsContainer');
+
+      console.log('Rendering', sessions.length, 'sessions');
+
+      container.innerHTML = sessions.map(s => {
+        const initials = s.name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+        const colors = ['from-blue-500 to-purple-600', 'from-green-500 to-teal-600', 'from-pink-500 to-red-600', 'from-yellow-500 to-orange-600', 'from-indigo-500 to-blue-600'];
+        const color = colors[s.id.charCodeAt(0) % colors.length];
+
+        return `
+          <div data-session-id="${s.id}" class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-lg hover:shadow-xl transition cursor-pointer group" onclick="joinSession('${s.id}', ${s.isPrivate})">
+            <div class="w-16 h-16 bg-gradient-to-br ${color} rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition">
+              <span class="text-2xl font-bold text-white">${initials}</span>
+            </div>
+            <p class="session-name text-center font-semibold text-gray-900 dark:text-gray-100 truncate mb-1">${s.name}</p>
+            <p class="text-xs text-center text-gray-600 dark:text-gray-400">${s.fileCount} file${s.fileCount !== 1 ? 's' : ''}</p>
+            ${s.isPrivate ? '<div class="flex justify-center mt-2"><svg class="w-4 h-4 text-yellow-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg></div>' : ''}
+          </div>
+        `;
+      }).join('');
+    }
+
+    function setupEventListeners() {
+      console.log('Setting up event listeners...');
+      const dropzone = document.getElementById("dropzone");
+      const fileInput = document.getElementById("fileInput");
+
+      // Verify critical elements exist
+      const saveUserNameBtn = document.getElementById("saveUserNameBtn");
+      const editUserNameBtn = document.getElementById("editUserNameBtn");
+      console.log('saveUserNameBtn exists:', !!saveUserNameBtn);
+      console.log('editUserNameBtn exists:', !!editUserNameBtn);
+
+      dropzone.addEventListener("click", (e) => {
+        // Don't trigger file input if clicking on checkbox
+        if (e.target.id === 'privateCheckbox') return;
+        fileInput.click();
+      });
+
+      dropzone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropzone.classList.add("border-indigo-500", "bg-indigo-100");
+      });
+
+      dropzone.addEventListener("dragleave", (e) => {
+        e.preventDefault();
+        dropzone.classList.remove("border-indigo-500", "bg-indigo-100");
+      });
+
+      dropzone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropzone.classList.remove("border-indigo-500", "bg-indigo-100");
+        const files = Array.from(e.dataTransfer.files || []);
+        if (files.length > 0) processFiles(files);
+      });
+
+      fileInput.addEventListener("change", (e) => {
+        const files = Array.from(e.target.files || []);
+        e.target.value = "";
+        if (files.length > 0) processFiles(files);
+      });
+
+      document.getElementById("backBtn").addEventListener("click", backToLobby);
+      document.getElementById("downloadBtn").addEventListener("click", requestDownload);
+      document.getElementById("endSessionBtn").addEventListener("click", endSession);
+      document.getElementById("privacyToggleBtn").addEventListener("click", togglePrivacy);
+      document.getElementById("editSessionNameBtn").addEventListener("click", () => {
+        document.getElementById('editNameSection').classList.toggle('hidden');
+      });
+      document.getElementById("saveNameBtn").addEventListener("click", saveSessionName);
+
+      console.log('About to set up passcode listeners...');
+      document.getElementById("submitPasscodeBtn").addEventListener("click", submitPasscode);
+      document.getElementById("cancelPasscodeBtn").addEventListener("click", () => hideModal('passcodeModal'));
+
+      document.getElementById("passcodeInput").addEventListener("input", (e) => {
+        e.target.value = e.target.value.toUpperCase();
+      });
+
+      console.log('About to set up user name edit listeners...');
+      // User name editing
+      document.getElementById("editUserNameBtn").addEventListener("click", () => {
+        console.log('Edit button clicked');
+        document.getElementById('userNameInput').value = userName;
+        showModal('userNameModal');
+      });
+
+      console.log('About to bind saveUserNameBtn...');
+      const saveBtn = document.getElementById("saveUserNameBtn");
+      console.log('saveBtn element:', saveBtn);
+
+      saveBtn.addEventListener("click", () => {
+        console.log('Save button clicked');
+        const newName = document.getElementById('userNameInput').value.trim();
+        console.log('New name from input:', newName);
+        if (newName && newName.length > 0) {
+          userName = newName;
+          console.log('Saving new username:', userName);
+          setCookie('airdrop_username', userName, 365);
+          console.log('Cookie after save:', document.cookie);
+          document.getElementById('userNameDisplay').textContent = userName;
+          hideModal('userNameModal');
+
+          // If user is currently hosting a session, update the session name
+          if (mySessionId && myRole === 'send') {
+            send({ type: "UPDATE_SESSION_NAME", name: userName });
+            document.getElementById('sessionName').textContent = userName;
+            document.getElementById('sessionInitials').textContent = userName.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+          }
+        } else {
+          console.log('Name is empty, not saving');
+        }
+      });
+
+      console.log('saveUserNameBtn listener attached');
+
+      document.getElementById("cancelUserNameBtn").addEventListener("click", () => {
+        hideModal('userNameModal');
+      });
+
+      // Enter key support for modals
+      document.getElementById("userNameInput").addEventListener("keypress", (e) => {
+        console.log('Keypress in username input:', e.key);
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          console.log('Enter key pressed, triggering save');
+          document.getElementById("saveUserNameBtn").click();
+        }
+      });
+
+      document.getElementById("passcodeInput").addEventListener("keypress", (e) => {
+        if (e.key === 'Enter') {
+          document.getElementById("submitPasscodeBtn").click();
+        }
+      });
+    }
+
+    function processFiles(files) {
+      currentFiles = files;
+      const totalSize = files.reduce((sum, f) => sum + f.size, 0);
+
+      currentSessionMeta = {
+        count: files.length,
+        totalSize: totalSize,
+        files: files.map(f => ({
+          name: f.name,
+          size: f.size,
+          mimeType: f.type || "application/octet-stream"
+        }))
+      };
+
+      const isPrivate = document.getElementById('privateCheckbox').checked;
+      startSharing(isPrivate);
+    }
+
+    function startSharing(isPrivate) {
+      send({
+        type: "CREATE_SESSION",
+        deviceName: sessionName, // Use sessionName instead of userName
+        isPrivate: isPrivate,
+        meta: currentSessionMeta
+      });
+    }
+
+    function joinSession(sessionId, isPrivate) {
+      if (isPrivate) {
+        pendingSessionId = sessionId;
+        showModal('passcodeModal');
+        document.getElementById('passcodeInput').value = '';
+        document.getElementById('passcodeError').classList.add('hidden');
+      } else {
+        send({ type: "JOIN_SESSION", sessionId });
+      }
+    }
+
+    function submitPasscode() {
+      const passcode = document.getElementById('passcodeInput').value.toUpperCase();
+      if (passcode.length !== 4) return;
+
+      send({
+        type: "JOIN_SESSION",
+        sessionId: pendingSessionId,
+        passcode: passcode
+      });
+    }
+
+    function showPasscodeError(msg) {
+      const el = document.getElementById('passcodeError');
+      el.textContent = msg;
+      el.classList.remove('hidden');
+    }
+
+    function requestDownload() {
+      rxChunks = [];
+      rxMeta = null;
+      rxBytes = 0;
+      currentFileIndex = 0;
+      totalFiles = currentSessionMeta?.count || 1;
+
+      send({ type: "REQUEST_FILE" });
+    }
+
+    function sendNextFile() {
+      if (currentFileIndex >= currentFiles.length) {
+        hideProgress();
+        return;
+      }
+
+      const file = currentFiles[currentFileIndex];
+      sendFile(file, currentFileIndex, currentFiles.length);
+    }
+
+    function sendFile(file, idx, total) {
+      showProgress(`Sending ${idx + 1}/${total}`, 0);
+
+      send({
+        type: "metadata",
+        name: file.name,
+        size: file.size,
+        mimeType: file.type || "application/octet-stream",
+        fileIndex: idx,
+        totalFiles: total
+      });
+
+      const chunkSize = 64 * 1024;
+      let offset = 0;
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        if (!ws || ws.readyState !== WebSocket.OPEN) return;
+
+        ws.send(e.target.result);
+        offset += e.target.result.byteLength;
+
+        const progress = Math.round((offset / file.size) * 100);
+        showProgress(`Sending ${idx + 1}/${total}`, progress);
+
+        if (offset < file.size) {
+          readSlice(offset);
+        } else {
+          currentFileIndex++;
+          if (currentFileIndex < total) {
+            send({ type: "FILE_COMPLETE" });
+          } else {
+            hideProgress();
+          }
+        }
+      };
+
+      function readSlice(o) {
+        reader.readAsArrayBuffer(file.slice(o, o + chunkSize));
+      }
+      readSlice(0);
+    }
+
+    function finishDownload() {
+      const blob = new Blob(rxChunks, { type: rxMeta.mimeType });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = rxMeta.name;
+      a.click();
+
+      URL.revokeObjectURL(url);
+
+      rxChunks = [];
+      rxBytes = 0;
+      currentFileIndex++;
+
+      if (currentFileIndex < totalFiles) {
+        send({ type: "READY_FOR_NEXT" });
+      } else {
+        hideProgress();
+      }
+    }
+
+    function saveSessionName() {
+      const name = document.getElementById('editNameInput').value.trim();
+      if (!name) return;
+
+      sessionName = name;
+      setCookie('airdrop_sessionname', sessionName, 365);
+      console.log('Saved session name to cookie:', sessionName);
+
+      send({ type: "UPDATE_SESSION_NAME", name: sessionName });
+      document.getElementById('sessionName').textContent = sessionName;
+      document.getElementById('sessionInitials').textContent = sessionName.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+      document.getElementById('editNameSection').classList.add('hidden');
+    }
+
+    function togglePrivacy() {
+      const session = mySessionId ? { id: mySessionId } : null;
+      if (!session) return;
+
+      send({ type: "TOGGLE_PRIVACY" });
+    }
+
+    function endSession() {
+      send({ type: "LEAVE_SESSION" });
+      backToLobby();
+    }
+
+    function backToLobby() {
+      mySessionId = null;
+      myRole = null;
+      currentFiles = [];
+      currentSessionMeta = null;
+
+      document.getElementById('lobbyView').classList.remove('hidden');
+      document.getElementById('sessionView').classList.add('hidden');
+      document.getElementById('passcodeDisplay').classList.add('hidden');
+      document.getElementById('editNameSection').classList.add('hidden');
+      document.getElementById('editSessionNameBtn').classList.add('hidden');
+
+      // Hide user controls when not hosting
+      document.getElementById('userNameContainer').classList.add('hidden');
+      document.getElementById('privateCheckboxContainer').classList.add('hidden');
+
+      hideProgress();
+
+      // Request fresh session list
+      setTimeout(() => {
+        send({ type: "GET_SESSIONS" });
+      }, 200);
+    }
+
+    function showSessionView(name, meta, isSender, isPrivate) {
+      document.getElementById('lobbyView').classList.add('hidden');
+      document.getElementById('sessionView').classList.remove('hidden');
+
+      const initials = name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+      document.getElementById('sessionInitials').textContent = initials;
+      document.getElementById('sessionName').textContent = name;
+
+      const displayName = meta.count > 1 ? `${meta.count} files` : meta.files[0].name;
+      const size = (meta.totalSize / 1024 / 1024).toFixed(2);
+
+      document.getElementById('fileInfo').textContent = displayName;
+      document.getElementById('fileSize').textContent = `${size} MB`;
+
+      // Hide back button for senders, show for receivers
+      document.getElementById('backBtn').classList.toggle('hidden', isSender);
+      document.getElementById('downloadBtn').classList.toggle('hidden', isSender);
+      document.getElementById('endSessionBtn').classList.toggle('hidden', !isSender);
+      document.getElementById('privacyToggleBtn').classList.toggle('hidden', !isSender);
+      document.getElementById('editSessionNameBtn').classList.toggle('hidden', !isSender);
+
+      if (isSender) {
+        document.getElementById('editNameInput').value = name;
+
+        // Update privacy toggle button state
+        const lockIcon = document.getElementById('lockIcon');
+        const toggleText = document.getElementById('privacyToggleText');
+
+        if (isPrivate) {
+          toggleText.textContent = 'Make Public';
+          lockIcon.innerHTML = '<path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>';
+        } else {
+          toggleText.textContent = 'Make Private';
+          lockIcon.innerHTML = '<path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2H7V7a3 3 0 015.905-.75 1 1 0 001.937-.5A5.002 5.002 0 0010 2z"></path>';
+        }
+      }
+    }
+
+    function showModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function hideModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+
+    function showProgress(label, percent) {
+      document.getElementById('progressBox').classList.remove('hidden');
+      document.getElementById('progressLabel').textContent = label;
+      document.getElementById('progressPercent').textContent = percent + '%';
+      document.getElementById('progressBar').style.width = percent + '%';
+    }
+
+    function hideProgress() {
+      setTimeout(() => {
+        document.getElementById('progressBox').classList.add('hidden');
+      }, 1000);
+    }
+
+    function send(data) {
+      if (ws && ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify(data));
+      }
+    }
+  </script>
+</body>
+</html>
