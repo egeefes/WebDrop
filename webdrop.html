@@ -1,38 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="https://egeefes.com/webdrop">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="WebDrop">
-    <meta property="og:image" content="https://framerusercontent.com/images/SjBk4Izxscidnr9ecPD7LQJNpY4.png?scale-down-to=512&width=1344&height=768">
-
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="egeefes.com">
-    <meta property="twitter:url" content="https://egeefes.com/webdrop">
-    <meta name="twitter:title" content="WebDrop">
-    <meta name="twitter:image" content="https://framerusercontent.com/images/SjBk4Izxscidnr9ecPD7LQJNpY4.png?scale-down-to=512&width=1344&height=768">
-
     <!-- HTML Meta Tags -->
     <meta charset="utf-8">
     <title>WebDrop</title>
-    <meta name="author" content="Egedxb">
-    <meta name="description" content="WebDrop - By Ege Efes" />
+    <meta name="author" content="EgeEfes">
+    <meta name="description" content="WebDrop"
+    />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:3884002,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-  </script>
-  <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
+
+  <!-- Dark Theme -->
   <script>
   const mq = window.matchMedia('(prefers-color-scheme: dark)');
   function applyTheme() {
@@ -41,7 +21,9 @@
   applyTheme();
   mq.addEventListener?.('change', applyTheme) || mq.addListener(applyTheme);
   </script>
+
 </head>
+
 <body class="bg-gradient-to-br from-gray-100 to-gray-400 dark:from-gray-900 dark:to-gray-950 min-h-screen">
   <div id="app" class="flex items-center justify-center min-h-screen p-4">
 
@@ -64,7 +46,7 @@
         <h1 class="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">WebDrop</h1>
         <p class="text-gray-600 dark:text-gray-400"> </p>
 
-        <!-- User name display (only shown when hosting) -->
+        <!-- User name display -->
         <div id="userNameContainer" class="hidden mt-4 flex items-center justify-center gap-2">
           <span class="text-sm text-gray-600 dark:text-gray-400">You are:</span>
           <span id="userNameDisplay" class="font-bold text-gray-900 dark:text-gray-100"></span>
@@ -84,7 +66,7 @@
           </svg>
           <p class="text-gray-700 dark:text-gray-200 font-medium mb-4">Click or drop your file(s) here to share</p>
 
-          <!-- Private session checkbox (only shown when hosting) -->
+          <!-- Private session checkbox -->
           <label id="privateCheckboxContainer" class="hidden inline-flex items-center gap-2 cursor-pointer">
             <input type="checkbox" id="privateCheckbox" class="w-4 h-4 rounded" />
             <span class="text-sm text-gray-600 dark:text-gray-400">Make session private (requires passcode)</span>
@@ -111,7 +93,7 @@
           <span id="sessionInitials" class="text-2xl font-bold text-white"></span>
         </div>
 
-        <!-- Session name with edit button -->
+        <!-- Session name and edit -->
         <div class="flex items-center justify-center gap-2 mb-2">
           <h2 id="sessionName" class="text-2xl font-bold text-gray-900 dark:text-gray-100"></h2>
           <button id="editSessionNameBtn" class="hidden text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
@@ -129,7 +111,7 @@
           </button>
         </div>
 
-        <!-- Passcode Display (for sender) -->
+        <!-- Sender Passcode Display -->
         <div id="passcodeDisplay" class="hidden mt-4 bg-yellow-100 dark:bg-yellow-900/30 border border-yellow-300 dark:border-yellow-700 rounded-lg p-3">
           <p class="text-sm text-yellow-800 dark:text-yellow-200 mb-1">Your passcode is:</p>
           <p class="text-2xl font-bold text-yellow-900 dark:text-yellow-100 tracking-widest" id="passcodeText"></p>
@@ -149,7 +131,7 @@
         </div>
       </div>
 
-      <!-- Download Button (for receiver) -->
+      <!-- Download Button -->
       <button id="downloadBtn" class="hidden w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-lg flex items-center justify-center gap-3 transition shadow-lg hover:shadow-xl mb-3">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
@@ -157,7 +139,7 @@
         Download
       </button>
 
-      <!-- Privacy Toggle (for sender) -->
+      <!-- Public Toggle -->
       <button id="privacyToggleBtn" class="hidden w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition mb-3 flex items-center justify-center gap-2">
         <svg id="lockIcon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path>
@@ -165,7 +147,7 @@
         <span id="privacyToggleText">Make Public</span>
       </button>
 
-      <!-- End Session (for sender) -->
+      <!-- End Session -->
       <button id="endSessionBtn" class="hidden w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition">
         Stop Sharing
       </button>
@@ -218,7 +200,7 @@
   </div>
 
   <script>
-    const RELAY_WS = "wss://airdrop-relay.mail-2dc.workers.dev/ws";
+    const RELAY_WS = "wss://YOURWORKERURL/ws"; //ENTER YOUR WORKER URL HERE
 
     let ws = null;
     let mySessionId = null;
@@ -227,7 +209,7 @@
     let currentSessionMeta = null;
     let pendingSessionId = null;
     let userName = null;
-    let sessionName = null; // Separate session name that persists
+    let sessionName = null; // Separate session names
 
     // Transfer state
     let rxChunks = [];
@@ -399,7 +381,7 @@
           document.getElementById('passcodeDisplay').classList.remove('hidden');
         }
 
-        // Use sessionName (which persists) for the session view
+        // Use sessionName for session view
         showSessionView(sessionName, currentSessionMeta, true, msg.isPrivate);
       }
       else if (msg.type === "PRIVACY_TOGGLED") {
@@ -459,7 +441,6 @@
       }
       else if (msg.type === "SESSION_CLOSED") {
         console.log('Session closed by sender');
-        //alert('Session has ended');
         backToLobby();
       }
       else if (msg.type === "LEFT_SESSION") {
@@ -626,7 +607,7 @@
     function startSharing(isPrivate) {
       send({
         type: "CREATE_SESSION",
-        deviceName: sessionName, // Use sessionName instead of userName
+        deviceName: sessionName,
         isPrivate: isPrivate,
         meta: currentSessionMeta
       });

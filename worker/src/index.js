@@ -23,7 +23,7 @@ export class Room {
     this.state = state;
     this.sessions = new Map(); // sessionId -> session object
     this.clients = new Map(); // ws -> client info
-    this.observers = new Set(); // clients just observing (not in any session yet)
+    this.observers = new Set(); // clients just observing
   }
 
   fetch(request) {
@@ -63,7 +63,7 @@ export class Room {
         safeSend(obs, msg);
       }
 
-      // Also broadcast to all clients in sessions (receivers)
+      // Also broadcast to all clients in sessions
       for (const [ws, info] of this.clients) {
         if (info.role === 'recv') {
           safeSend(ws, msg);
@@ -262,7 +262,7 @@ export class Room {
               const session = this.sessions.get(clientInfo.sessionId);
               if (session) {
                 if (clientInfo.role === 'send') {
-                  // Sender is ending the session - close it completely
+                  // Sender is ending the session
                   console.log('Sender ending session:', clientInfo.sessionId);
                   for (const r of session.receivers) {
                     safeSend(r, { type: "SESSION_CLOSED" });
@@ -285,7 +285,7 @@ export class Room {
               this.observers.add(server); // Back to observer
               safeSend(server, { type: "LEFT_SESSION" });
 
-              // Broadcast updated session list immediately
+              // Broadcast updated session list
               broadcastSessionList();
             }
             return;
@@ -323,7 +323,7 @@ export class Room {
 
         if (session) {
           if (clientInfo.role === 'send') {
-            // Sender left, close entire session
+            // Sender left - close entire session
             console.log('Sender left, closing session:', clientInfo.sessionId);
             for (const r of session.receivers) {
               safeSend(r, { type: "SESSION_CLOSED" });
@@ -355,7 +355,7 @@ export class Room {
       try { server.close(); } catch {}
     });
 
-    // Send initial session list after a short delay
+    // Send initial session list
     setTimeout(() => {
       const list = Array.from(this.sessions.entries()).map(([id, s]) => ({
         id,
