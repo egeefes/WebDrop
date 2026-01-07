@@ -1,4 +1,4 @@
-# WebDrop
+![webdrop image](https://framerusercontent.com/images/SjBk4Izxscidnr9ecPD7LQJNpY4.png)
 ## Simple web page that lets people share files directly in browser.
 
 Open the page, drop one or more files, and it creates a sharing session. Other people on the same page can see the session and download the files.
