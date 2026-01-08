@@ -1,5 +1,5 @@
 ![webdrop image](https://framerusercontent.com/images/SjBk4Izxscidnr9ecPD7LQJNpY4.png)
-## Simple web page that lets people share files directly in browser.
+### Simple web page that lets people share files directly in browser.
 
 Open the page, drop one or more files, and it creates a sharing session. Other people on the same page can see the session and download the files.
 
@@ -26,7 +26,7 @@ A live version is available to test on https://egeefes.com/webdrop
 
 ## How To Deploy
 - Deploy the files in the [worker](/worker) folder to cloudflared and take note of the worker URL.
-- In your [index.html](index.html) file, replace the worker websocket URL with yours in line 203.
+- In your [index.html](index.html) file, replace the worker websocket URL with yours at line 203.
 - Host the HTML file either on your local machine or a hosting provider.
 
 ## Notes On Privacy
